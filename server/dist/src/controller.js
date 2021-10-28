@@ -12,13 +12,15 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.getAll = exports.Create = void 0;
 const schema_1 = require("./schema");
 const serverCollectiom_1 = require("./serverCollectiom");
-function Create(array, isEqual, res) {
+function Create(array, isEqual, numberOfEqual, res) {
     return __awaiter(this, void 0, void 0, function* () {
         let chekcing = new serverCollectiom_1.Cheking();
         isEqual = yield chekcing.checkArray(array);
+        numberOfEqual = yield chekcing.numberOfEqual;
         const doc = new schema_1.arrayModel({
             array: array,
             isEqual: isEqual,
+            numberOfEqual: numberOfEqual
         });
         doc.save(function (err, newDoc) {
             if (err) {

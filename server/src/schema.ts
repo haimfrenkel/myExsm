@@ -5,6 +5,7 @@ import { arrayModle } from '../src/types/interfases'
 const arraySchema = new Schema<arrayModle>({
   array: { type: [Number], required: true },
   isEqual: { type: Boolean, required: true },
+  numberOfEqual: {type: Number, required: true}
 });
 
 

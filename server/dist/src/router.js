@@ -6,7 +6,8 @@ const express_1 = __importDefault(require("express"));
 const controller_1 = require("./controller");
 const router = express_1.default.Router();
 router.post('/create', (req, res) => {
-    const add = controller_1.Create(req.body["arrey"], req.body["isEqual"], res);
+    console.log(req.body);
+    const add = controller_1.Create(req.body["arrey"], req.body["isEqual"], req.body["numberOfEqual"], res);
 });
 router.get('/getAll', (req, res) => {
     const add = controller_1.getAll(res);

@@ -5,14 +5,15 @@ import { Cheking } from './serverCollectiom'
 
 
 
-export async function Create(array: number[], isEqual: boolean,  res: any) {
+export async function Create(array: number[], isEqual: boolean, numberOfEqual: number,  res: any) {
 
     let chekcing = new Cheking()
     isEqual = await chekcing.checkArray(array)
-
+    numberOfEqual = await chekcing.numberOfEqual
     const doc = new arrayModel({
         array: array,
         isEqual: isEqual,
+        numberOfEqual: numberOfEqual
     });
 
     doc.save(function (err: any, newDoc: any) {

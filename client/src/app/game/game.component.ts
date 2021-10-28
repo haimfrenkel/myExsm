@@ -12,10 +12,12 @@ import { arrayModle } from '../../../src/types/interfases'
 export class GameComponent implements OnInit {
   langth: number = 0
   myNumbers: [] = []
+  localHistoryData: arrayModle[] = []
+
   localdata = {
     isEqual: null,
+    numberOfEqual: null
   }
-  localHistoryData: arrayModle[] = []
 
 
 
@@ -60,14 +62,15 @@ export class GameComponent implements OnInit {
       let convert = parseInt(this.upForm.get(['numbers', i, 'num'])?.value)
       myNumbers.push(convert)
     } this.ruoter.addArray(myNumbers).subscribe((data: any) => {
+      
       this.localdata.isEqual = data.isEqual
+      this.localdata.numberOfEqual = data.numberOfEqual
       this.getHistory()
     })
   }
 
   getHistory() {
     this.ruoter.getArrays().subscribe((data: arrayModle[]) => {
-      console.log(data);
       this.localHistoryData = data
     })
   }
