@@ -9,8 +9,6 @@ export const mainInit = () => {
 
     mongoConn.initDB().then(() => {
         console.log('DB connected');
-
-       
     })
 
 }

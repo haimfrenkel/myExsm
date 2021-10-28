@@ -33,7 +33,7 @@ export class GameComponent implements OnInit {
 
   constructor(private form: FormBuilder, private ruoter: RouterService) { }
 
-  ngOnInit(): void {
+  ngOnInit(): void { 
     this.getHistory()
   }
 
@@ -59,16 +59,9 @@ export class GameComponent implements OnInit {
     for (let i = 0; i < langth; i++) {
       let convert = parseInt(this.upForm.get(['numbers', i, 'num'])?.value)
       myNumbers.push(convert)
-    }
-    console.log(myNumbers);
-
-    this.ruoter.addArray(myNumbers).subscribe((data: any) => {
-      console.log(data.isEqual)
-      console.log(this.localdata);
-
+    } this.ruoter.addArray(myNumbers).subscribe((data: any) => {
       this.localdata.isEqual = data.isEqual
-      console.log(this.localdata.isEqual);
-
+      this.getHistory()
     })
   }
 

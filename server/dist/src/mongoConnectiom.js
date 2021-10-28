@@ -20,9 +20,6 @@ class mongoDB {
             let mongoose = yield this.initMongoose();
             return true;
         });
-        this.getDbConnection = () => {
-            return mongoose_1.default;
-        };
     }
     initMongoose() {
         return new Promise((resolve) => {
@@ -32,8 +29,7 @@ class mongoDB {
                 const db = mongoose_1.default.connection;
                 db.on('error', console.error.bind(console, 'connection error:'));
                 db.once('open', function () {
-                    // we're connected!
-                    console.log('mongodb connected!!');
+                    console.log('mongodb connected');
                     resolve(mongoose_1.default);
                 });
             }

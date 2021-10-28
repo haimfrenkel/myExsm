@@ -14,14 +14,12 @@ const schema_1 = require("./schema");
 const serverCollectiom_1 = require("./serverCollectiom");
 function Create(array, isEqual, res) {
     return __awaiter(this, void 0, void 0, function* () {
-        console.log(array);
         let chekcing = new serverCollectiom_1.Cheking();
         isEqual = yield chekcing.checkArray(array);
         const doc = new schema_1.arrayModel({
             array: array,
             isEqual: isEqual,
         });
-        console.log(doc);
         doc.save(function (err, newDoc) {
             if (err) {
                 var msg = "no info";
@@ -37,7 +35,6 @@ function getAll(res) {
         if (err) {
             return res.status(500).send({});
         }
-        console.log(list);
         return res.status(200).send(list);
     });
 }

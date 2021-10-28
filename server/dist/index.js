@@ -27,7 +27,6 @@ const http = __importStar(require("http"));
 const main_module_1 = require("./src/main.module");
 const express_2 = __importDefault(require("express"));
 const router_1 = __importDefault(require("./src/router"));
-console.log('line 1 in index.js');
 const app = express_1.default();
 const port = '6505';
 app.set('port', port);
