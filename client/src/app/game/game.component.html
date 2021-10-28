@@ -10,41 +10,31 @@
     <a *ngFor="let number of numbers.controls; let i = index">
       <a [formGroup]="number">
         <input class="box" formControlName="num" />
-        <div
-          *ngIf="upForm.get(['numbers', i, 'num'])?.hasError('required')"
-          style="color: blue"
-        >
+        <div *ngIf="upForm.get(['numbers', i, 'num'])?.hasError('required')" style="color: blue">
           נא הכנס מספר
         </div>
-        <div
-          *ngIf="upForm.get(['numbers', i, 'num'])?.hasError('pattern')"
-          style="color: red"
-        >
+        <div *ngIf="upForm.get(['numbers', i, 'num'])?.hasError('pattern')" style="color: red">
           ערך לא חוקי
         </div>
       </a>
     </a>
   </div>
-  <button
-    type="button"
-    class="btn btn-primary"
-    *ngIf="upForm.get(['numbers', checkLangth() - 1, 'num'])?.value"
-    (click)="addNumber()"
-  >
+  <button type="button" class="btn btn-primary" *ngIf="upForm.get(['numbers'])?.valid"
+    (click)="addNumber()">
     הוסף מספר נוסף
   </button>
-  <button
-    type="button"
-    class="btn btn-success"
-    [disabled]="upForm.get(['numbers'])?.invalid"
-    (click)="check()"
-  >
+
+  <button type="button" class="btn btn-success" [disabled]="upForm.get(['numbers'])?.invalid" (click)="check()">
     בוא נחשב
   </button>
 
-  <div *ngIf="localdata.isEqual == null"><h2>אין התאמה או שלא הוכנסו מספרים</h2></div>
-  <div *ngIf="localdata.isEqual"><h2>יש התאמה</h2></div>
-  
+  <div *ngIf="localdata.isEqual == null">
+    <h2>אין התאמה או שלא הוכנסו מספרים</h2>
+  </div>
+  <div *ngIf="localdata.isEqual">
+    <h2>יש התאמה</h2>
+  </div>
+
   <br />
   <br />
   <br />
@@ -58,10 +48,9 @@
     </thead>
     <tbody>
       <tr *ngFor="let item of localHistoryData">
-        <td>{{item.array}}</td>
-        <td>{{item.isEqual}}</td>
+        <td>{{ item.array }}</td>
+        <td>{{ item.isEqual }}</td>
       </tr>
     </tbody>
   </table>
-  
 </form>
