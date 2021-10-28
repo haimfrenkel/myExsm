@@ -1,0 +1,24 @@
+.box {
+    margin: 10px;
+    width:30px;
+    height:30px;
+    border:5px 
+    
+    solid greenyellow;
+    font-size: 15px;
+    text-align: center
+}
+
+
+.senter {
+    top: 20%;
+    left: 50%;
+   position: absolute;
+}
+
+.title {
+    top: 5%;
+    left: 30%;
+    text-align: center;
+   position: absolute;
+}

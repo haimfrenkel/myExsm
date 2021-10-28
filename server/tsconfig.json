@@ -1,0 +1,30 @@
+{
+  "compilerOptions": {
+    "module": "commonjs",
+    "esModuleInterop": true,
+    "target": "es6",
+    "noImplicitAny": true,
+    "moduleResolution": "node",
+    "skipLibCheck": true,
+    "suppressImplicitAnyIndexErrors": true,
+    "sourceMap": true,
+    "outDir": "dist",
+    "baseUrl": ".",
+    "lib": [
+      "webworker",
+      "es6",
+      "scripthost"
+    ],
+    "paths": {
+      "*": [
+        "node_modules/*",
+        "src/types/*"
+      ]
+    }
+  },
+  "include": [
+
+    "src/**/*",
+    "config/**/*", "index.ts"
+  ]
+}

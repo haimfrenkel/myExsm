@@ -1,0 +1,35 @@
+<div class="title">
+  <h2>נא הכנס מספרים בקוביות שלפניך</h2>
+  <h3>
+    שים לב, חובה להכניס מספרים בלבד. לאחר שהזנת את כל המספרים, תוכל להוסיף
+    מספרים ככל אוות נפשך
+  </h3>
+</div>
+<form [formGroup]="upForm" class="senter">
+  <div formArrayName="numbers">
+    <a *ngFor="let number of numbers.controls; let i = index">
+      <a [formGroup]="number">
+        <input class="box" formControlName="num" />
+        <div
+          *ngIf="upForm.get(['numbers', i, 'num'])?.hasError('required')"
+          style="color: blue"
+        >
+          נא הכנס מספר
+        </div>
+        <div
+          *ngIf="upForm.get(['numbers', i, 'num'])?.hasError('pattern')"
+          style="color: red"
+        >
+          ערך לא חוקי
+        </div>
+      </a>
+    </a>
+  </div>
+  <button type="button" class="btn btn-primary" *ngIf="upForm.get(['numbers', checkLangth() - 1, 'num'])?.value" (click)="addNumber()">הוסף מספר נוסף</button>
+  <button type="button" class="btn btn-success" [disabled]="upForm.get(['numbers'])?.invalid" (click)="check()" >בוא נחשב</button>
+
+  <div *ngIf="localdata.isEqual == null">אין התאמה או שלא הוכנסו מספרים</div>
+  <div *ngIf="localdata.isEqual">יש התאמה</div>
+
+  <button routerLink="/history" type="button" class="btn btn-primary" >view history</button>
+</form>

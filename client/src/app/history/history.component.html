@@ -1,0 +1,15 @@
+<h1>היסטורית בדיקות</h1>
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">המערך</th>
+      <th scope="col">מצב התאמה</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let item of localHistoryData">
+      <td>{{item.array}}</td>
+      <td>{{item.isEqual}}</td>
+    </tr>
+  </tbody>
+</table>
