@@ -1,18 +1,14 @@
 import { model, Schema } from 'mongoose'
+import { arrayModle } from '../src/types/interfases'
 
 
-
-const arraySchema = new Schema<array>({
+const arraySchema = new Schema<arrayModle>({
   array: { type: [Number], required: true },
   isEqual: { type: Boolean, required: true },
 });
 
 
-export const arrayModel = model<array>("array", arraySchema);
+export const arrayModel = model<arrayModle>("array", arraySchema);
 
 
-interface array {
-  array: any,
-  isEqual: boolean
-}
 

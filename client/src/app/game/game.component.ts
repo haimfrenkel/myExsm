@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators, FormArray, FormBuilder, ValidatorFn, AbstractControl } from '@angular/forms';
 import { RouterService } from '../services/router.service';
-import { arrayModle } from '../types';
+import { arrayModle } from '../../../src/types/interfases'
 
 
 @Component({
